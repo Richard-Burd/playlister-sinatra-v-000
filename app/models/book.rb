@@ -2,8 +2,6 @@
 # and mess around with all the functionality
 class Tractate < ActiveRecord::Base
   belongs_to :author
-  has_many :tractate_languages
-  has_many :languages, through: :tractate_languages
-  include Slugifiable::InstanceMethods
-  extend Slugifiable::ClassMethods
+  has_many :book_languages
+  has_many :languages, through: :book_languages
 end

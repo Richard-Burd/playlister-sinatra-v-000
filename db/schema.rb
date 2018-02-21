@@ -11,14 +11,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180117211025) do
+ActiveRecord::Schema.define(version: 20180121173552) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
   end
 
+  create_table "author_centuries", force: :cascade do |t|
+    t.integer "author_id"
+    t.integer "century_id"
+  end
+
+  create_table "authors", force: :cascade do |t|
+    t.string  "name"
+    t.string  "subjects"
+    t.integer "birthdate"
+    t.integer "death"
+    t.integer "location_id"
+  end
+
+  create_table "book_languages", force: :cascade do |t|
+    t.integer "book_id"
+    t.integer "language_id"
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.string  "title"
+    t.integer "year_published"
+    t.integer "author_id"
+  end
+
+  create_table "centuries", force: :cascade do |t|
+    t.string "century"
+  end
+
   create_table "genres", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "languages", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "location_centuries", force: :cascade do |t|
+    t.integer "location_id"
+    t.integer "century_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "town"
+    t.string "region"
   end
 
   create_table "song_genres", force: :cascade do |t|
